@@ -1,10 +1,10 @@
 # Frame-Frontend-Admin
 
-## 설명(Explain)
+## Explain
 
-Frame 관리자를 위한 어드민 사이트 입니다.
+Frame 관리자를 위한 어드민 서비스 입니다.
 
-## 깃 커밋 규칙(git commit convention)
+## Git commit Convention
 
 > ### 1. 기본적으로 commit message는 아래와 같이 제목, 내용으로 구성한다.
 
@@ -30,7 +30,7 @@ Frame 관리자를 위한 어드민 사이트 입니다.
   - Fixed -> Fix
   - Added -> Add
 
-## 기술 스택(skills)
+## Skills
 
 > ### 언어(Language)
 
