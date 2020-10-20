@@ -57,7 +57,7 @@ Frame 관리자를 위한 어드민 서비스 입니다.
 - release : 이번 출시 버전을 준비하는 브랜치
 - hotfix : 출시 버전에서 발생한 버그를 수정 하는 브랜치
 
-### Branch naming convention
+### Branch Naming Convention
 
 ```
 [관련 기능]-[제작 상세]
