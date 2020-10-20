@@ -29,11 +29,12 @@ Frame 관리자를 위한 어드민 서비스 입니다.
 - 과거시제를 사용하지 않고 명령어로 작성한다.
   - Fixed -> Fix
   - Added -> Add
-  
- ### 4. issue(pr) number [optional]
- - 이슈 또는 Pr에 관한 번호를 적는다
- - 예시 : #1
- - 보통 이슈해결 (Bug, Enhancement etc..)에 관해서만 Optional하게 사용한다
+
+### 4. issue(pr) number [optional]
+
+- 이슈 또는 Pr에 관한 번호를 적는다
+- 예시 : #1
+- 보통 이슈해결 (Bug, Enhancement etc..)에 관해서만 Optional하게 사용한다
 
 ## Skills
 
@@ -55,6 +56,19 @@ Frame 관리자를 위한 어드민 서비스 입니다.
 - feature : 기능을 개발하는 브랜치
 - release : 이번 출시 버전을 준비하는 브랜치
 - hotfix : 출시 버전에서 발생한 버그를 수정 하는 브랜치
+
+### Branch Naming Convention
+
+```
+[관련 기능]-[제작 상세]
+
+[제작 상세]에서 띄어쓰기는 '_(언더바)'로 구분한다.
+
+ex) login-ui
+ex) login-server_communication
+ex) login-middleware
+ex) login-plugin
+```
 
 ## Build Setup
 
