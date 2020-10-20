@@ -9,22 +9,24 @@
           target="_blank"
           rel="noopener noreferrer"
           class="button--green"
-        >Documentation</a>
+          >Documentation</a
+        >
         <a
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
           rel="noopener noreferrer"
           class="button--grey"
-        >GitHub</a>
+          >GitHub</a
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
-export default Vue.extend({})
+export default Vue.extend({});
 </script>
 
 <style>
