@@ -9,7 +9,7 @@ export default {
   name: 'WriteNotice',
   layout: 'loggedIn',
   components: {
-    WriteNotice,
+    'write-notice': WriteNotice,
   },
 };
 </script>
