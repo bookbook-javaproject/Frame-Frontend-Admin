@@ -12,15 +12,15 @@ import AdminHeader from '~/components/AdminHeader.vue';
 import { backgroundImage } from '~/assets/images';
 
 export default {
+  components: {
+    AdminHeader,
+  },
   data() {
     return {
       backgroundStyle: {
         backgroundImage: `url(${backgroundImage})`,
       },
     };
-  },
-  components: {
-    AdminHeader,
   },
 };
 </script>
