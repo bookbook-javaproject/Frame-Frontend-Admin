@@ -132,6 +132,6 @@ button {
   font-size: 1.5625rem;
   font-family: 'AppleSDGothicNeo';
   margin-top: 71px;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 </style>
