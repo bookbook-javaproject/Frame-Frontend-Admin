@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="prev-page"><span><</span></div>
+    <div class="prev-page"><span>&lt;</span></div>
     <div class="page"><span>1</span></div>
     <div class="next-page"><span>></span></div>
   </footer>
