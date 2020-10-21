@@ -49,9 +49,6 @@ li {
     > p {
       color: #ffffff;
     }
-
-    > img {
-    }
   }
 }
 
