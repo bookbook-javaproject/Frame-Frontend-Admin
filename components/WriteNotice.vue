@@ -1,9 +1,7 @@
 <template>
   <main>
-    <input placeholder="제목" type="text" v-model="title" />
+    <input v-model="title" placeholder="제목" type="text" />
     <textarea
-      name=""
-      id=""
       v-model="content"
       placeholder="공지사항, 업데이트 내역 또는 대회 소개 글 작성"
     ></textarea>
