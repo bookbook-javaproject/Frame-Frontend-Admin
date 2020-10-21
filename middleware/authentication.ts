@@ -10,6 +10,6 @@ export default function (context: Context) {
   } = context;
 
   if (!(state as RootState).isLogin) {
-    redirect('/login');
+    // redirect('/login');
   }
 }
