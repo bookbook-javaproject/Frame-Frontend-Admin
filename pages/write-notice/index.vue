@@ -6,7 +6,7 @@
 import WriteNotice from '~/components/WriteNotice';
 
 export default {
-  name: 'Login',
+  name: 'WriteNotice',
   layout: 'loggedIn',
   components: {
     WriteNotice,
