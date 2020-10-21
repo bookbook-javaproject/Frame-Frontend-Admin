@@ -11,7 +11,7 @@
         <nuxt-link to="/writer-list">작가신청목록</nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/reporter-list">신고자목록</nuxt-link>
+        <nuxt-link to="/report-list">신고목록</nuxt-link>
       </li>
       <li>
         <nuxt-link to="/chatting">채팅</nuxt-link>
