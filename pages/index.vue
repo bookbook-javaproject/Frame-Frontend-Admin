@@ -1,10 +1,9 @@
-<template></template>
+<template>
+  <div></div>
+</template>
 
 <script lang="ts">
 export default {
   layout: 'loggedIn',
 };
 </script>
-
-<style>
-</style>
