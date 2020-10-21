@@ -18,6 +18,10 @@ import WriterItem from '~/components/WriterItem';
 
 export default {
   name: 'WriterList',
+  components: {
+    'progress-bar': ProgressBar,
+    'writer-item': WriterItem,
+  },
 };
 </script>
 
