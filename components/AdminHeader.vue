@@ -37,7 +37,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$font-color: #0f4c81;
+$font-color-active: #0f4c81;
+$font-color: #87a6c0;
 header {
   width: 100%;
   display: flex;
@@ -100,7 +101,7 @@ li {
     font-size: 1.25rem;
     font-family: 'AppleSDGothicNeo';
     color: #87a6c0;
-    transition: 0.5s;
+    transition: 0.3s;
 
     &::after {
       content: '';
@@ -115,7 +116,7 @@ li {
     }
 
     &.nuxt-link-active {
-      color: $font-color;
+      color: $font-color-active;
 
       &::after {
         content: '';
@@ -125,7 +126,7 @@ li {
         display: block;
         position: relative;
         margin-top: 1px;
-        border-bottom: 2px solid $font-color;
+        border-bottom: 2px solid $font-color-active;
         transition: all 0.3s ease;
       }
     }
@@ -133,7 +134,7 @@ li {
 
   &:hover {
     > a {
-      color: $font-color;
+      color: $font-color-active;
 
       &::after {
         content: '';
@@ -143,7 +144,7 @@ li {
         display: block;
         position: relative;
         margin-top: 1px;
-        border-bottom: 2px solid $font-color;
+        border-bottom: 2px solid $font-color-active;
         transition: all 0.3s ease;
       }
     }
@@ -156,9 +157,9 @@ li {
     text-align: center;
     font-size: 1.25rem;
     font-family: 'AppleSDGothicNeo';
-    color: #87a6c0;
+    color: $font-color;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.3s;
 
     &::after {
       content: '';
@@ -175,7 +176,7 @@ li {
 
   &:hover {
     > span {
-      color: $font-color;
+      color: $font-color-active;
 
       &::after {
         content: '';
@@ -185,7 +186,7 @@ li {
         display: block;
         position: relative;
         margin-top: 1px;
-        border-bottom: 2px solid $font-color;
+        border-bottom: 2px solid $font-color-active;
         transition: all 0.3s ease;
       }
     }
