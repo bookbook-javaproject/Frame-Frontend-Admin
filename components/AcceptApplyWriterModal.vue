@@ -1,5 +1,5 @@
 <template>
-  <modal @:closeModal="closeModal">
+  <modal v-on:closeModal="closeModal">
     <main>
       <img :src="frameLogo" alt="프레임로고" />
       <h1>작가 신청 허용</h1>
