@@ -2,17 +2,19 @@
   <div class="report-list-main">
     <h1>작가신청 목록</h1>
     <ul>
-      <writer-item />
-      <writer-item />
-      <writer-item />
+      <writer-item v-on:openModal="openModal" />
+      <writer-item v-on:openModal="openModal" />
+      <writer-item v-on:openModal="openModal" />
     </ul>
     <footer>
       <progress-bar />
     </footer>
+    <accept-apply-writer-modal v-if="isModalOn" v-on:closeModal="closeModal" />
   </div>
 </template>
 
 <script>
+import AcceptApplyWriterModal from '~/components/AcceptApplyWriterModal';
 import ProgressBar from '~/components/ProgressBar';
 import WriterItem from '~/components/WriterItem';
 
@@ -21,6 +23,20 @@ export default {
   components: {
     'progress-bar': ProgressBar,
     'writer-item': WriterItem,
+    'accept-apply-writer-modal': AcceptApplyWriterModal,
+  },
+  data() {
+    return {
+      isModalOn: false,
+    };
+  },
+  methods: {
+    openModal() {
+      this.$data.isModalOn = true;
+    },
+    closeModal() {
+      this.$data.isModalOn = false;
+    },
   },
 };
 </script>
