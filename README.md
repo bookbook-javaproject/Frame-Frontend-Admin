@@ -40,7 +40,8 @@ Frame 관리자를 위한 어드민 서비스 입니다.
 
 ### 언어(Language)
 
-- TypeScript
+- ~~TypeScript~~ 초반에 사용하다 바꾼 이유: [https://github.com/vuejs/vue/issues/8406#issuecomment-400162385](https://github.com/vuejs/vue/issues/8406#issuecomment-400162385)
+- JavaScript 
 
 ### 프레임워크(Framework)
 
