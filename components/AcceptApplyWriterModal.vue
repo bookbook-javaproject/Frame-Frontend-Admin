@@ -1,5 +1,5 @@
 <template>
-  <modal v-on:closeModal="closeModal">
+  <modal @:closeModal="closeModal">
     <main>
       <img :src="frameLogo" alt="프레임로고" />
       <h1>작가 신청 허용</h1>
@@ -17,13 +17,13 @@ import Modal from '~/components/Modal';
 
 export default {
   name: 'AcceptApplyWriterModal',
+  components: {
+    modal: Modal,
+  },
   data() {
     return {
       frameLogo,
     };
-  },
-  components: {
-    modal: Modal,
   },
   methods: {
     closeModal() {
