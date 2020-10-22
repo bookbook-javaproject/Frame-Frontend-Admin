@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li @click="onClick">
     <aside>
       <img :src="pencilImage" alt="연필이미지" />
       <p>어떤 유저</p>
@@ -27,6 +27,11 @@ export default {
       pencilImage,
     };
   },
+  methods: {
+    onClick() {
+      this.$emit('openModal');
+    },
+  },
 };
 </script>
 
@@ -41,6 +46,11 @@ li {
   background-color: #ffffff;
   box-sizing: border-box;
   padding: 1.5rem;
+  cursor: pointer;
+
+  &:hover {
+    border: 16px solid #0f4c81;
+  }
 }
 
 aside {
