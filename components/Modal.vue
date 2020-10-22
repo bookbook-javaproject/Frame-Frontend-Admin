@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { backgroundImage, closeImage } from '~/assets/images';
 
 export default {
