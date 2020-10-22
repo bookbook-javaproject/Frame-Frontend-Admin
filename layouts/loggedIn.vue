@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script >
 import AdminHeader from '~/components/AdminHeader.vue';
 import { backgroundImage } from '~/assets/images';
 
