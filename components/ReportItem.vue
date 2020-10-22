@@ -1,5 +1,5 @@
 <template>
-  <li @mouseover="onMouseOver" @mouseleave="onMouseLeave">
+  <li @mouseover="onMouseOver" @mouseleave="onMouseLeave" @click="onClick">
     <img :src="warningImage" alt="경고이미지" />
     <p class="post-id">1</p>
     <p class="post-writer">글쓴 유저</p>
@@ -24,6 +24,9 @@ export default {
     },
     onMouseLeave() {
       this.$data.warningImage = warningImage;
+    },
+    onClick() {
+      this.$emit('openModal');
     },
   },
 };
