@@ -2,28 +2,44 @@
   <div class="report-list-main">
     <h1>신고 목록</h1>
     <ul>
-      <report-item />
-      <report-item />
-      <report-item />
-      <report-item />
-      <report-item />
-      <report-item />
+      <report-item v-on:openModal="openModal" />
+      <report-item v-on:openModal="openModal" />
+      <report-item v-on:openModal="openModal" />
+      <report-item v-on:openModal="openModal" />
+      <report-item v-on:openModal="openModal" />
+      <report-item v-on:openModal="openModal" />
     </ul>
     <footer>
       <progress-bar />
     </footer>
+    <report-modal v-if="isModalOn" v-on:closeModal="closeModal" />
   </div>
 </template>
 
 <script>
+import ReportModal from '~/components/ReportModal';
 import ProgressBar from '~/components/ProgressBar';
 import ReportItem from '~/components/ReportItem';
 
 export default {
   name: 'ReportList',
   components: {
-    ProgressBar,
-    ReportItem,
+    'progress-bar': ProgressBar,
+    'report-item': ReportItem,
+    'report-modal': ReportModal,
+  },
+  data() {
+    return {
+      isModalOn: false,
+    };
+  },
+  methods: {
+    openModal() {
+      this.$data.isModalOn = true;
+    },
+    closeModal() {
+      this.$data.isModalOn = false;
+    },
   },
 };
 </script>
