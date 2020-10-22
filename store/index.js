@@ -1,8 +1,4 @@
-export interface RootState {
-  isLogin: boolean;
-}
-
-export const state = (): RootState => {
+export const state = () => {
   if (process.browser) {
     // localStorage.setItem('accessToken', 'asd.asd.asd');
     const accessToken = localStorage.getItem('accessToken');
