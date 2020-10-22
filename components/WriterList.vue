@@ -2,14 +2,14 @@
   <div class="report-list-main">
     <h1>작가신청 목록</h1>
     <ul>
-      <writer-item v-on:openModal="openModal" />
-      <writer-item v-on:openModal="openModal" />
-      <writer-item v-on:openModal="openModal" />
+      <writer-item @:openModal="openModal" />
+      <writer-item @:openModal="openModal" />
+      <writer-item @:openModal="openModal" />
     </ul>
     <footer>
       <progress-bar />
     </footer>
-    <accept-apply-writer-modal v-if="isModalOn" v-on:closeModal="closeModal" />
+    <accept-apply-writer-modal v-if="isModalOn" @:closeModal="closeModal" />
   </div>
 </template>
 
