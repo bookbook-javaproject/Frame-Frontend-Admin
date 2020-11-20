@@ -11,6 +11,3 @@ RUN yarn
 RUN yarn build
 
 CMD [ "yarn", "start" ]
-
-docker build --tag frame-admin-front:0.0.2 .
-docker run -d --name framd-admin-front -p 8001:3000 frame-admin-front:0.0.2
