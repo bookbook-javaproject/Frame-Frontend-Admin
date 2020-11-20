@@ -1,4 +1,8 @@
 export default {
+  server: {
+    port: 8001,
+    host: '0.0.0.0',
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Frame-Frontend-Admin',
