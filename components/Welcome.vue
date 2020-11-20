@@ -88,7 +88,7 @@ div {
 h1 {
   width: fit-content;
   overflow: hidden;
-  height: 2rem;
+  height: auto;
   text-overflow: ellipsis;
   white-space: nowrap;
 
