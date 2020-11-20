@@ -10,7 +10,4 @@ RUN rm package-lock.json
 RUN yarn
 RUN yarn build
 
-ENV HOST 0.0.0.0
-EXPOSE 8001
-
 CMD [ "yarn", "start" ]
