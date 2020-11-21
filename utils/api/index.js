@@ -6,10 +6,11 @@ export const requestApi = async (title, callbackFn) => {
       alert('인터넷 연결 상태를 확인해 주세요.');
     }
     if (getErrorStatus(e) === 500) {
-      alert('서버에서 에러가 발생했습니다.');
+      alert('서버에서 에러가 발생하였습니다.');
     } else {
-      alert(`${title} 요청에 실패했습니다.`)
+      alert(`${title}에 실패하였습니다.`)
     }
+    throw e;
   }
 }
 
