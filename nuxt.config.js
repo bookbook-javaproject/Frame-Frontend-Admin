@@ -6,7 +6,7 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: ['@nuxtjs/axios'],
   axios: {
-    baseURL: 'http://54.180.201.188:5002'
+    baseURL: 'http://54.180.201.188:5002',
   },
   // Loading Progress Bar custom https://vue-nuxt.gitbook.io/nuxt/configuration/loading
   loading: {
@@ -27,8 +27,7 @@ export default {
       {
         rel: 'stylesheet',
         type: 'text/css',
-        href:
-          'https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap',
       },
     ],
   },
@@ -37,7 +36,7 @@ export default {
   css: [{ src: '~assets/styles/main.scss', lang: 'scss' }],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: '~/plugins/persistedState.js'}],
+  plugins: [{ src: '~/plugins/persistedState.js' }],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

@@ -43,9 +43,7 @@ export default {
           const dynamicSentencesCopy = [...this.dynamicSentences];
           const sentence = this.dynamicSentences[i];
 
-          dynamicSentencesCopy[i] = sentence
-            ? sentence + words[j]
-            : '' + words[j];
+          dynamicSentencesCopy[i] = sentence ? sentence + words[j] : '' + words[j];
 
           this.dynamicSentences = dynamicSentencesCopy;
 

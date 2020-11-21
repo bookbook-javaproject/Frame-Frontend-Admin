@@ -8,12 +8,12 @@ export const requestApi = async (title, callbackFn) => {
     if (getErrorStatus(e) === 500) {
       alert('서버에서 에러가 발생하였습니다.');
     } else {
-      alert(`${title}에 실패하였습니다.`)
+      alert(`${title}에 실패하였습니다.`);
     }
     throw e;
   }
-}
+};
 
-export const isNetworkError = (e) => e.message === 'Network Error';
+export const isNetworkError = e => e.message === 'Network Error';
 
-export const getErrorStatus = (e) => e.response.data.status;
+export const getErrorStatus = e => e.response.data.status;

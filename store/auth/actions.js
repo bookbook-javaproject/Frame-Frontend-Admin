@@ -7,9 +7,8 @@ export const loginAction = () => `auth/${LOGIN}`;
 
 export default {
   [LOGIN]: function ({ commit }, data) {
-    requestApi('로그인', () => 
-      this.$axios.$post('/admin/auth', data)).then(data => {
-        commit(LOGIN_SUCCESS, data);
-      });
+    requestApi('로그인', () => this.$axios.$post('/admin/auth', data)).then(data => {
+      commit(LOGIN_SUCCESS, data);
+    });
   },
-}
+};

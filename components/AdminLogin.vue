@@ -49,7 +49,7 @@ export default {
         if (value.isLoggedIn) {
           this.$router.push('/');
         }
-      }
+      },
     },
   },
   methods: {
@@ -61,10 +61,10 @@ export default {
         this.login({
           id: this.id,
           password: this.password,
-        })
+        });
       }
     },
-  }
+  },
 };
 </script>
 
