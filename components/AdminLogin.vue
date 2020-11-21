@@ -59,8 +59,8 @@ export default {
     onSubmitLogin() {
       if (!this.isEmptyInputs) {
         this.login({
-          id: this.id,
-          password: this.password,
+          id: this.id.trim(),
+          password: this.password.trim(),
         });
       }
     },
