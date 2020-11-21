@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS } from './actions';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
 export default {
   [LOGIN_SUCCESS]: function (state, payload) {
