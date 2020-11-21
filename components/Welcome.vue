@@ -40,19 +40,14 @@ export default {
         this.audio.play();
 
         setTimeout(() => {
-          if (i === 0 && j === 0) {
-          }
-
           const dynamicSentencesCopy = [...this.dynamicSentences];
           const sentence = this.dynamicSentences[i];
 
-          dynamicSentencesCopy[i] = sentence
-            ? sentence + words[j]
-            : '' + words[j];
+          dynamicSentencesCopy[i] = sentence ? sentence + words[j] : '' + words[j];
 
           this.dynamicSentences = dynamicSentencesCopy;
 
-          if (i === sentence.length - 1 && j === words.length - 1) {
+          if (i === sentences.length - 1 && j === words.length - 1) {
             this.audio.pause();
           }
         }, milliSeconds);
