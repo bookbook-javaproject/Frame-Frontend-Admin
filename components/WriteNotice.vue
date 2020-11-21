@@ -33,7 +33,7 @@ export default {
         this.title = '';
         this.content = '';
       }
-    }
+    },
   },
   methods: {
     ...mapActions({
@@ -46,13 +46,13 @@ export default {
       const title = this.title.trim();
       const content = this.content.trim();
       if (!title || !content) {
-        return alert('제목과 내용은 빈칸 일 수 없습니다.')
+        return alert('제목과 내용은 빈칸 일 수 없습니다.');
       }
       if (title && content) {
         this.createNotice({ title, content });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
