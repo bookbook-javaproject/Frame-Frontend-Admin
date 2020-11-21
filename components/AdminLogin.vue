@@ -2,37 +2,66 @@
   <main>
     <img :src="frameLogo" alt="프레임로고" />
     <h1>LOGIN</h1>
-    <input v-model="email" type="id" placeholder="ID" />
+    <input v-model="id" type="id" placeholder="ID" />
     <input
       v-model="password"
       class="second-input"
       type="password"
-      placeholder="PassWord"
+      placeholder="PASSWORD"
+      @keydown.enter="onSubmitLogin"
     />
-    <button :style="buttonStyle">로그인</button>
+    <button :style="buttonStyle" @click="onSubmitLogin">로그인</button>
   </main>
 </template>
 
 <script>
-import { frameLogo } from '@/assets/images';
+import { mapActions } from 'vuex';
+import { frameLogo } from '~/assets/images';
+import { loginAction } from '~/store/auth/actions';
 
 export default {
   name: 'AdminLogin',
   data() {
     return {
       frameLogo,
-      email: '',
+      id: '',
       password: '',
+      auth: this.$store.state.auth,
     };
   },
   computed: {
+    isEmptyInputs() {
+      return !this.id.trim() || !this.password.trim();
+    },
     buttonStyle() {
-      if (this.email.trim() && this.password.trim()) {
+      if (!this.isEmptyInputs) {
         return {
           backgroundColor: '#0f4c81',
+          cursor: 'pointer',
         };
-      } else {
-        return {};
+      }
+    },
+  },
+  watch: {
+    auth: {
+      deep: true,
+      handler(value) {
+        if (value.isLoggedIn) {
+          this.$router.push('/');
+        }
+      },
+    },
+  },
+  methods: {
+    ...mapActions({
+      login: loginAction(),
+    }),
+    onSubmitLogin() {
+      if (!this.isEmptyInputs) {
+        this.login({
+          id: this.id,
+          password: this.password,
+        });
       }
     },
   },
@@ -128,7 +157,7 @@ button {
   border: none;
   color: #ffffff;
   outline: none;
-  cursor: pointer;
+  cursor: not-allowed;
   font-size: 1.5625rem;
   font-family: 'AppleSDGothicNeo';
   margin-top: 71px;

@@ -1,8 +1,7 @@
 <template>
   <div>
     <p>
-      PM은 대마고 3학년 김준우 입니다. 그리고 아무말에 대한 답변은 아무말
-      입니다.
+      PM은 대마고 3학년 김준우 입니다. 그리고 아무말에 대한 답변은 아무말 입니다.
       <span>2020년10월22일 14시25분</span>
     </p>
   </div>
@@ -61,8 +60,7 @@ div {
           width: 0px;
           position: absolute;
           pointer-events: none;
-          border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)
-            rgb(0, 0, 0);
+          border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgb(0, 0, 0);
           border-width: 6px;
           margin-top: -6px;
         }
