@@ -3,6 +3,17 @@ export default {
     port: 8001,
     host: '0.0.0.0',
   },
+  // Modules (https://go.nuxtjs.dev/config-modules)
+  modules: ['@nuxtjs/axios'],
+  axios: {
+    baseURL: 'http://54.180.201.188:5002'
+  },
+  // Loading Progress Bar custom https://vue-nuxt.gitbook.io/nuxt/configuration/loading
+  loading: {
+    color: '#7db8f9',
+    height: '4px',
+    failedColor: '#d43c6d',
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Frame-Frontend-Admin',
@@ -26,13 +37,10 @@ export default {
   css: [{ src: '~assets/styles/main.scss', lang: 'scss' }],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: '~/plugins/vue-init.js', mode: 'client' }],
+  plugins: [{ src: '~/plugins/persistedState.js'}],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
-
-  // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
