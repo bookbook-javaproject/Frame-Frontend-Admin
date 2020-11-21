@@ -40,9 +40,6 @@ export default {
         this.audio.play();
 
         setTimeout(() => {
-          if (i === 0 && j === 0) {
-          }
-
           const dynamicSentencesCopy = [...this.dynamicSentences];
           const sentence = this.dynamicSentences[i];
 
@@ -52,7 +49,7 @@ export default {
 
           this.dynamicSentences = dynamicSentencesCopy;
 
-          if (i === sentence.length - 1 && j === words.length - 1) {
+          if (i === sentences.length - 1 && j === words.length - 1) {
             this.audio.pause();
           }
         }, milliSeconds);
