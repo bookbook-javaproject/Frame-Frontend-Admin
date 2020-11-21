@@ -37,7 +37,7 @@ export default {
   methods: {
     onLogout() {
       Cookies.remove('authentication');
-      this.$router.push('/login')
+      this.$router.push('/login');
     },
   },
 };
