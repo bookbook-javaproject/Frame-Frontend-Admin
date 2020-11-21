@@ -16,7 +16,7 @@
       <li>
         <nuxt-link to="/chatting">채팅</nuxt-link>
       </li>
-      <li class="logout">
+      <li class="logout" @click="onLogout">
         <span>로그아웃</span>
       </li>
     </ul>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie';
 import { frameLogo } from '~/assets/images';
 
 export default {
@@ -32,6 +33,12 @@ export default {
     return {
       frameLogo,
     };
+  },
+  methods: {
+    onLogout() {
+      Cookies.remove('authentication');
+      this.$router.push('/login')
+    },
   },
 };
 </script>
