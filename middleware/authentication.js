@@ -1,11 +1,9 @@
 export default function (context) {
   const {
-    app,
     redirect,
-    store: { state },
+    store: { state: { auth: { isLoggedIn } } },
   } = context;
-
-  if (!state.isLogin) {
-    // redirect('/login');
+  if (!isLoggedIn) {
+    redirect('/login');
   }
 }
