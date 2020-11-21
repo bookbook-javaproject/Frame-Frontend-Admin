@@ -3,11 +3,11 @@ FROM node:10
 WORKDIR /app
 ADD . /app/
 
-RUN npm i -g npm && npm i yarn
+RUN npm install --only=production
 
 RUN rm yarn.lock
 RUN rm package-lock.json
 RUN yarn
-RUN yarn build
+RUN npm run build
 
-CMD [ "yarn", "start" ]
+CMD [ "npm", "run", "start" ]
