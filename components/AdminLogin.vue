@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import { frameLogo } from '~/assets/images';
 import { loginAction } from '~/store/auth/actions';
 
@@ -26,10 +26,12 @@ export default {
       frameLogo,
       id: '',
       password: '',
-      auth: this.$store.state.auth,
     };
   },
   computed: {
+    ...mapState({
+      auth: state => state.auth,
+    }),
     isEmptyInputs() {
       return !this.id.trim() || !this.password.trim();
     },
