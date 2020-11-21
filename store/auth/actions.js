@@ -1,7 +1,7 @@
 import { requestApi } from '~/utils/api';
+import { LOGIN_SUCCESS } from './mutations';
 
 export const LOGIN = 'LOGIN';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
 export const loginAction = () => `auth/${LOGIN}`;
 
