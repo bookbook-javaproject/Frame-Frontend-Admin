@@ -10,6 +10,6 @@ export default {
     setToken.bind(this)(rootState.auth.accessToken);
     await requestApi('신고리스트 불러오기', () => this.$axios.$get('/report')).then(data => {
       commit(GET_REPORTS_SUCCESS, data);
-    });
+    }).catch(_ => {});
   },
 };
