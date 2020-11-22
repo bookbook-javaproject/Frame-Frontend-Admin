@@ -10,6 +10,6 @@ export default {
     state.isSuccessCreateNotice = true;
   },
   [RESET_STATE]: function (state) {
-    state = initialState;
+    Object.assign(state, { ...initialState });
   },
 };
