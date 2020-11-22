@@ -19,6 +19,6 @@ export default {
     state.isSuccessConfirm = true;
   },
   [RESET_STATE]: function (state) {
-    Object.assign(state, { ...initialState })
+    Object.assign(state, { ...initialState });
   },
 };
