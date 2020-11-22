@@ -1,27 +1,40 @@
 <template>
   <div class="report-list-main">
     <h1>작가신청 목록</h1>
-    <ul>
-      <writer-item v-on:openModal="openModal" />
-      <writer-item v-on:openModal="openModal" />
-      <writer-item v-on:openModal="openModal" />
+    <ul v-if="writers.length">
+      <writer-item
+        v-for="writer of rangedWriters"
+        v-bind:key="writer.email"
+        v-bind:writer="writer"
+        v-on:openModal="openModal"
+      />
     </ul>
-    <footer>
-      <progress-bar />
+    <h1 v-else>불러올 리스트가 없습니다.</h1>
+    <footer v-if="writers.length">
+      <pagination-bar
+        v-bind:currentPage="currentPage"
+        v-bind:totalPage="totalPage"
+        v-on:setPage="onSetChange"
+      />
     </footer>
     <accept-apply-writer-modal v-if="isModalOn" v-on:closeModal="closeModal" />
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations } from 'vuex';
+
 import AcceptApplyWriterModal from '~/components/AcceptApplyWriterModal';
-import ProgressBar from '~/components/ProgressBar';
+import PaginationBar from '~/components/PaginationBar';
 import WriterItem from '~/components/WriterItem';
+
+import { totalPageGetter, rangedWritersGetter } from '~/store/writer/getters';
+import { setCurrentPageMutation } from '~/store/writer/mutations';
 
 export default {
   name: 'WriterList',
   components: {
-    'progress-bar': ProgressBar,
+    'pagination-bar': PaginationBar,
     'writer-item': WriterItem,
     'accept-apply-writer-modal': AcceptApplyWriterModal,
   },
@@ -30,7 +43,23 @@ export default {
       isModalOn: false,
     };
   },
+  computed: {
+    ...mapState({
+      writers: state => state.writer.writers,
+      currentPage: state => state.writer.currentPage,
+    }),
+    ...mapGetters({
+      totalPage: totalPageGetter(),
+      rangedWriters: rangedWritersGetter(),
+    }),
+  },
   methods: {
+    ...mapMutations({
+      setPage: setCurrentPageMutation(),
+    }),
+    onSetChange(page) {
+      this.setPage(page);
+    },
     openModal() {
       this.$data.isModalOn = true;
     },
