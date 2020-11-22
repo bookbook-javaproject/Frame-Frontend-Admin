@@ -2,11 +2,20 @@
   <div class="report-list-main">
     <h1>작가신청 목록</h1>
     <ul v-if="writers.length">
-      <writer-item v-for="writer of rangedWriters" v-bind:key="writer.email" v-bind:writer="writer"  v-on:openModal="openModal" />
+      <writer-item
+        v-for="writer of rangedWriters"
+        v-bind:key="writer.email"
+        v-bind:writer="writer"
+        v-on:openModal="openModal"
+      />
     </ul>
     <h1 v-else>불러올 리스트가 없습니다.</h1>
     <footer v-if="writers.length">
-      <pagination-bar v-bind:currentPage="currentPage" v-bind:totalPage="totalPage" v-on:setPage="onSetChange" />
+      <pagination-bar
+        v-bind:currentPage="currentPage"
+        v-bind:totalPage="totalPage"
+        v-on:setPage="onSetChange"
+      />
     </footer>
     <accept-apply-writer-modal v-if="isModalOn" v-on:closeModal="closeModal" />
   </div>
