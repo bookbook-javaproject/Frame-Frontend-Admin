@@ -2,9 +2,7 @@
   <div class="report-list-main">
     <h1>신고 목록</h1>
     <ul v-if="reports.length">
-      <report-item
-        v-bind:report="tableHeader"
-      />
+      <report-item v-bind:report="tableHeader" />
       <report-item
         v-for="report of rangedReports"
         v-bind:key="report.reportId"
@@ -47,14 +45,14 @@ export default {
         reportId: '신고 번호',
         writer: '글쓴이',
         reporter: '신고자',
-        reportCount:' 신고 합계',
+        reportCount: '신고 합계',
       },
     };
   },
   computed: {
     ...mapState({
-    reports: state => state.report.reports,
-    currentPage: state => state.report.currentPage,
+      reports: state => state.report.reports,
+      currentPage: state => state.report.currentPage,
     }),
     ...mapGetters({
       totalPage: totalPageGetter(),
