@@ -17,7 +17,7 @@
         v-on:setPage="onSetChange"
       />
     </footer>
-    <accept-apply-writer-modal v-if="isModalOn" v-on:closeModal="closeModal" />
+    <accept-apply-writer-modal v-if="isModalOn" v-on:closeModal="closeModal" v-bind:email="email" />
   </div>
 </template>
 
@@ -41,6 +41,7 @@ export default {
   data() {
     return {
       isModalOn: false,
+      email: '',
     };
   },
   computed: {
@@ -60,7 +61,8 @@ export default {
     onSetChange(page) {
       this.setPage(page);
     },
-    openModal() {
+    openModal(email) {
+      this.email = email;
       this.$data.isModalOn = true;
     },
     closeModal() {
