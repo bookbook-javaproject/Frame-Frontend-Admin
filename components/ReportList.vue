@@ -10,7 +10,7 @@
       <report-item v-on:openModal="openModal" />
     </ul>
     <footer>
-      <progress-bar />
+      <pagination-bar />
     </footer>
     <report-modal v-if="isModalOn" v-on:closeModal="closeModal" />
   </div>
@@ -18,13 +18,13 @@
 
 <script>
 import ReportModal from '~/components/ReportModal';
-import ProgressBar from '~/components/ProgressBar';
+import PaginationBar from '~/components/PaginationBar';
 import ReportItem from '~/components/ReportItem';
 
 export default {
   name: 'ReportList',
   components: {
-    'progress-bar': ProgressBar,
+    'pagination-bar': PaginationBar,
     'report-item': ReportItem,
     'report-modal': ReportModal,
   },
