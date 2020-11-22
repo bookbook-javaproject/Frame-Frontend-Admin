@@ -2,6 +2,9 @@ export const requestApi = async (title, callbackFn) => {
   try {
     return await callbackFn();
   } catch (e) {
+    if (process.server) {
+      throw e;
+    }
     if (isNetworkError(e)) {
       alert('인터넷 연결 상태를 확인해 주세요.');
     }
