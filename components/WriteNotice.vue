@@ -5,11 +5,15 @@
       v-model="content"
       placeholder="공지사항, 업데이트 내역 또는 대회 소개 글 작성"
     ></textarea>
-    <button>등록</button>
+    <button @click="onSubmit">등록</button>
   </main>
 </template>
 
 <script>
+import { mapState, mapActions, mapMutations } from 'vuex';
+import { createNoticeAction } from '~/store/notice/actions';
+import { resetStateMutation } from '~/store/notice/mutations';
+
 export default {
   name: 'WriteNotice',
   data() {
@@ -17,6 +21,37 @@ export default {
       title: '',
       content: '',
     };
+  },
+  computed: mapState({
+    isSuccessCreateNotice: state => state.notice.isSuccessCreateNotice,
+  }),
+  watch: {
+    isSuccessCreateNotice(value) {
+      if (value) {
+        alert('공지 작성이 완료되었습니다.');
+        this.resetState();
+        this.title = '';
+        this.content = '';
+      }
+    },
+  },
+  methods: {
+    ...mapActions({
+      createNotice: createNoticeAction(),
+    }),
+    ...mapMutations({
+      resetState: resetStateMutation(),
+    }),
+    onSubmit() {
+      const title = this.title.trim();
+      const content = this.content.trim();
+      if (!title || !content) {
+        return alert('제목과 내용은 빈칸 일 수 없습니다.');
+      }
+      if (title && content) {
+        this.createNotice({ title, content });
+      }
+    },
   },
 };
 </script>

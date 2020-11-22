@@ -2,6 +2,9 @@ export const requestApi = async (title, callbackFn) => {
   try {
     return await callbackFn();
   } catch (e) {
+    if (process.server) {
+      throw e;
+    }
     if (isNetworkError(e)) {
       alert('인터넷 연결 상태를 확인해 주세요.');
     }
@@ -17,3 +20,15 @@ export const requestApi = async (title, callbackFn) => {
 export const isNetworkError = e => e.message === 'Network Error';
 
 export const getErrorStatus = e => e.response.data.status;
+
+export function setHeader(key, value) {
+  this.$axios.setHeader(key, value);
+}
+
+export function setToken(accessToken) {
+  this.$axios.setToken(accessToken, 'Bearer');
+}
+
+export function deleteAuthorization() {
+  delete this.$axios.defaults.headers.common['Authorization'];
+}

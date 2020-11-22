@@ -8,6 +8,7 @@
 import { backgroundImage } from '~/assets/images';
 
 export default {
+  name: 'Default',
   data() {
     return {
       backgroundStyle: {
