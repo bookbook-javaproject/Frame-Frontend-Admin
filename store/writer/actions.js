@@ -8,8 +8,10 @@ export const getWritersAction = () => `writer/${GET_WRITERS}`;
 export default {
   [GET_WRITERS]: async function ({ commit, rootState }) {
     setToken.bind(this)(rootState.auth.accessToken);
-    await requestApi('작가 신청 리스트 불러오기', () => this.$axios.$get('/submission')).then(({ authorSubmissionPreviews }) => {
-      commit(GET_WRITERS_SUCCESS, authorSubmissionPreviews);
-    });
+    await requestApi('작가 신청 리스트 불러오기', () => this.$axios.$get('/submission')).then(
+      ({ authorSubmissionPreviews }) => {
+        commit(GET_WRITERS_SUCCESS, authorSubmissionPreviews);
+      },
+    );
   },
 };
