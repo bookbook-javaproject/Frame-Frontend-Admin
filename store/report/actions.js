@@ -18,17 +18,15 @@ export default {
       .catch(_ => {});
   },
   [APPROVE_REPORT]: function ({ commit, rootState }, reportId) {
-    requestApi('신고 승인하기', () => axios.delete('http://54.180.201.188:5002/report',
-      {
+    requestApi('신고 승인하기', () =>
+      axios.delete('http://54.180.201.188:5002/report', {
         headers: {
           Authorization: `Bearer ${rootState.auth.accessToken}`,
         },
-        data: { reportId } ,
-      }
-    )
-  )
-    .then(_ => {
+        data: { reportId },
+      }),
+    ).then(_ => {
       commit(APPROVE_REPORT_SUCCESS);
-    })
-  }
+    });
+  },
 };
