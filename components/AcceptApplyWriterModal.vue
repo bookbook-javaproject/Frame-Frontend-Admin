@@ -36,7 +36,7 @@ export default {
   watch: {
     async isSuccessConfirm(value) {
       if (value) {
-        alert('작가 컨펌 요청에 성공하였습니다.')
+        alert('작가 컨펌 요청에 성공하였습니다.');
         this.resetState();
         await this.getWriters();
         this.closeModal();
@@ -55,14 +55,14 @@ export default {
       this.$emit('closeModal');
     },
     onConfirm() {
-      this.dispatchConfirm(this.email, true)
+      this.dispatchConfirm(this.email, true);
     },
     onCancel() {
-      this.dispatchConfirm(this.email, false)
+      this.dispatchConfirm(this.email, false);
     },
     dispatchConfirm(email, confirm) {
       this.confirm({ email, confirm });
-    }
+    },
   },
 };
 </script>
