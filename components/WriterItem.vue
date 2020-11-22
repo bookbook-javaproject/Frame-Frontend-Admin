@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     onClick() {
-      this.$emit('openModal');
+      this.$emit('openModal', this.writer.email);
     },
     onClickLink(e) {
       e.stopPropagation();
