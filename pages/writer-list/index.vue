@@ -14,6 +14,6 @@ export default {
   },
   async asyncData({ store }) {
     await store.dispatch(getWritersAction());
-  }
+  },
 };
 </script>
