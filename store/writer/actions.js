@@ -12,6 +12,6 @@ export default {
       ({ authorSubmissionPreviews }) => {
         commit(GET_WRITERS_SUCCESS, authorSubmissionPreviews);
       },
-    );
+    ).catch(_ => {});
   },
 };
