@@ -18,7 +18,7 @@
         v-on:setPage="onChangePage"
       />
     </footer>
-    <report-modal v-if="isModalOn" v-on:closeModal="closeModal" />
+    <report-modal v-if="isModalOn" v-on:closeModal="closeModal" v-bind:report="selectedReport" />
   </div>
 </template>
 
@@ -47,6 +47,7 @@ export default {
         reporter: '신고자',
         reportCount: '신고 합계',
       },
+      selectedReport: null,
     };
   },
   computed: {
@@ -63,7 +64,8 @@ export default {
     ...mapMutations({
       setPage: setCurrentPageMutation(),
     }),
-    openModal() {
+    openModal(report) {
+      this.selectedReport = report;
       this.$data.isModalOn = true;
     },
     closeModal() {
