@@ -1,6 +1,8 @@
 <template>
   <footer>
-    <div class="page-controller" @click="onClickPrev" v-bind:style="prevCursorStyle"><span>&lt;</span></div>
+    <div class="page-controller" @click="onClickPrev" v-bind:style="prevCursorStyle">
+      <span>&lt;</span>
+    </div>
     <div class="page" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
       <form v-show="isShowInput" @submit="changePage">
         <input type="number" required v-bind:max="totalPage" min="1" value="1" />
@@ -8,19 +10,20 @@
       </form>
       <span v-text="currentPage" />
     </div>
-    <div class="page-controller" @click="onClickNext" v-bind:style="nextCursorStyle"><span>></span></div>
+    <div class="page-controller" @click="onClickNext" v-bind:style="nextCursorStyle">
+      <span>></span>
+    </div>
   </footer>
 </template>
 
 <script>
-
 export default {
   name: 'PaginationBar',
   props: ['currentPage', 'totalPage'],
   data() {
     return {
       isShowInput: false,
-    }
+    };
   },
   computed: {
     prevCursorStyle() {
@@ -53,7 +56,7 @@ export default {
     },
     onClickPrev() {
       if (this.isAvailablePrev) {
-       this.setPage(this.currentPage - 1);
+        this.setPage(this.currentPage - 1);
       }
     },
     onClickNext() {
@@ -63,8 +66,8 @@ export default {
     },
     setPage(page) {
       this.$emit('setPage', page);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -104,7 +107,7 @@ footer {
     min-width: 1.75rem;
     bottom: calc(1.75rem);
     cursor: default;
-    
+
     > input {
       height: 1.75rem;
       outline: none;
