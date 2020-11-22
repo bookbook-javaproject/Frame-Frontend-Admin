@@ -27,7 +27,7 @@ export default {
       this.$data.warningImage = warningImage;
     },
     onClick() {
-      this.$emit('openModal');
+      this.$emit('openModal', this.report);
     },
   },
 };
