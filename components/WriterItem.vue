@@ -2,15 +2,10 @@
   <li @click="onClick">
     <aside>
       <img :src="pencilImage" alt="연필이미지" />
-      <p>어떤 유저</p>
+      <p v-text="writer.email" />
     </aside>
-    <span
-      >저의 다짐 및 목표는 이러합니다. 저의 다짐 및 목표는 이러합니다. 저의 다짐 및 목표는
-      이러합니다. 저의 다짐 및 목표는 이러합니다. 저의 다짐 및 목표는 이러합니다. 저의 다짐 및
-      목표는 이러합니다.저의 다짐 및 목표는 이러합니다. 저의 다짐 및 목표는 이러합니다. 저의 다짐 및
-      목표는 이러합니다. 저의 다짐 및 목표는 이러합니다. 저의 다짐 및 목 표는
-    </span>
-    <a target="_blank" href="https://www.google.com/">https://www.google.com/</a>
+    <span v-text="writer.goal" />
+    <a target="_blank" v-bind:href="writer.link" v-text="writer.link" @click="onClickLink" />
   </li>
 </template>
 
@@ -19,6 +14,7 @@ import { pencilImage } from '~/assets/images';
 
 export default {
   name: 'WriterItem',
+  props: ['writer'],
   data() {
     return {
       pencilImage,
@@ -28,6 +24,9 @@ export default {
     onClick() {
       this.$emit('openModal');
     },
+    onClickLink(e) {
+      e.stopPropagation();
+    }
   },
 };
 </script>
@@ -51,6 +50,7 @@ li {
 }
 
 aside {
+  flex: 1;
   display: flex;
   align-items: center;
 }
@@ -64,23 +64,26 @@ p {
   color: #707070;
   font-size: 1.375rem;
   margin-top: 4px;
+  word-break: break-word;
 }
 
 span {
-  width: 37.5rem;
+  flex: 4;
+  word-break: break-word;
   font-family: 'AppleSDGothicNeo';
   color: #707070;
   font-size: 1.125rem;
+  margin: 4px 12px 0;
 }
 
 a {
+  flex: 1;
   font-family: 'AppleSDGothicNeo';
-  color: #717171;
+  /* color: #717171; */
   text-decoration: none;
   font-size: 1.1875rem;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  margin-top: 4px;
+  word-break: break-word;
+  text-decoration: underline;
 }
 </style>
