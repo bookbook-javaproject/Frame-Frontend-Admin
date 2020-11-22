@@ -5,27 +5,29 @@
         <img :src="frameLogo" alt="프레임로고" />
       </div>
       <header>
-        <h1>신고 내용</h1>
-        <h2>해당 글 누적 신고 : 5개</h2>
+        <h1>신고 내용</h1>
+        <h2>해당 글 누적 신고 : {{ report.reportCount }}개</h2>
       </header>
-      <p>
-        이 글은 이러이러해서 완전 별로입니다. 이 글은 이러이러해서 완전 별로입니다. 이 글은
-        이러이러해서 완전 별로입니다. 이 글 은 이러이러해서 완전 별로입니다.이 글은 이러이러해 완전
-        별로입니다. 이 글은 이러이러해서 완전 별로입니다. 이 글은 이 러이러해서 완전 별로입니다.
-      </p>
+      <p v-text="report.content" />
       <footer>
-        <button class="refuse">삭제</button>
+        <button class="refuse" @click="onClickApprove">삭제</button>
       </footer>
     </main>
   </modal>
 </template>
 
 <script>
+import { mapState, mapActions, mapMutations } from 'vuex';
+
+import { approveReportAction, getReportsAction } from '~/store/report/actions';
+import { resetStateMutation } from '~/store/report/mutations';
+
 import { frameLogo } from '~/assets/images';
 import Modal from '~/components/Modal';
 
 export default {
   name: 'ReportModal',
+  props: ['report'],
   components: {
     modal: Modal,
   },
@@ -34,9 +36,34 @@ export default {
       frameLogo,
     };
   },
+  computed: mapState({
+    isSuccessApproveReport: state => state.report.isSuccessApproveReport,
+  }),
+  watch: {
+    async isSuccessApproveReport(value) {
+      if (value) {
+        alert('신고 승인 요청에 성공하였습니다.');
+        this.resetState();
+        await this.getReports();
+        this.closeModal();
+      }
+    },
+  },
   methods: {
+    ...mapActions({
+      approveReport: approveReportAction(),
+      getReports: getReportsAction(),
+    }),
+    ...mapMutations({
+      resetState: resetStateMutation(),
+    }),
     closeModal() {
       this.$emit('closeModal');
+    },
+    onClickApprove() {
+      if (confirm('신고된 게시글을 정말 삭제하시겠습니까?')) {
+        this.approveReport(this.report.reportId);
+      }
     },
   },
 };
@@ -92,6 +119,7 @@ p {
   width: 100%;
   overflow-y: scroll;
   margin: 2.1875rem 0;
+  word-break: break-all;
 
   &::-webkit-scrollbar {
     width: 10px;

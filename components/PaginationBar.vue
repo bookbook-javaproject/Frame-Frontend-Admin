@@ -56,12 +56,12 @@ export default {
     },
     onClickPrev() {
       if (this.isAvailablePrev) {
-        this.setPage(this.currentPage - 1);
+        this.setPage(parseInt(this.currentPage) - 1);
       }
     },
     onClickNext() {
       if (this.isAvailableNext) {
-        this.setPage(this.currentPage + 1);
+        this.setPage(parseInt(this.currentPage) + 1);
       }
     },
     setPage(page) {
