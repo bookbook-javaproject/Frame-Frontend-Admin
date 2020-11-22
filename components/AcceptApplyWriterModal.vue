@@ -3,20 +3,25 @@
     <main>
       <img :src="frameLogo" alt="프레임로고" />
       <h1>작가 신청 허용</h1>
+      <h1 v-if="isSuccessConfirm">isSuccessConfirmisSuccessConfirm</h1>
       <div>
-        <button class="accept">허용</button>
-        <button class="refuse">거부</button>
+        <button class="accept" @click="onConfirm">허용</button>
+        <button class="refuse" @click="onCancel">거부</button>
       </div>
     </main>
   </modal>
 </template>
 
 <script>
+import { mapActions, mapMutations, mapState } from 'vuex';
 import { frameLogo } from '~/assets/images';
 import Modal from '~/components/Modal';
+import { confirmAction, getWritersAction } from '~/store/writer/actions';
+import { resetStateMutation } from '~/store/writer/mutations';
 
 export default {
   name: 'AcceptApplyWriterModal',
+  props: ['email'],
   components: {
     modal: Modal,
   },
@@ -25,9 +30,38 @@ export default {
       frameLogo,
     };
   },
+  computed: mapState({
+    isSuccessConfirm: state => state.writer.isSuccessConfirm,
+  }),
+  watch: {
+    async isSuccessConfirm(value) {
+      if (value) {
+        alert('작가 컨펌 요청에 성공하였습니다.');
+        this.resetState();
+        await this.getWriters();
+        this.closeModal();
+      }
+    },
+  },
   methods: {
+    ...mapActions({
+      getWriters: getWritersAction(),
+      confirm: confirmAction(),
+    }),
+    ...mapMutations({
+      resetState: resetStateMutation(),
+    }),
     closeModal() {
       this.$emit('closeModal');
+    },
+    onConfirm() {
+      this.dispatchConfirm(this.email, true);
+    },
+    onCancel() {
+      this.dispatchConfirm(this.email, false);
+    },
+    dispatchConfirm(email, confirm) {
+      this.confirm({ email, confirm });
     },
   },
 };

@@ -2,6 +2,7 @@ import { initialState } from './state';
 
 export const GET_WRITERS_SUCCESS = 'GET_WRITERS_SUCCESS';
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+export const CONFIRM_SUCCESS = 'CONFIRM_SUCCESS';
 export const RESET_STATE = 'RESET_STATE';
 
 export const setCurrentPageMutation = () => `writer/${SET_CURRENT_PAGE}`;
@@ -14,7 +15,10 @@ export default {
   [SET_CURRENT_PAGE]: function (state, payload) {
     state.currentPage = payload;
   },
+  [CONFIRM_SUCCESS]: function (state) {
+    state.isSuccessConfirm = true;
+  },
   [RESET_STATE]: function (state) {
-    state = initialState;
+    Object.assign(state, { ...initialState });
   },
 };
