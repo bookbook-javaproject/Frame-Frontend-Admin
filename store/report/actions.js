@@ -1,9 +1,12 @@
 import { requestApi, setToken } from '~/utils/api';
-import { GET_REPORTS_SUCCESS } from './mutations';
+import { APPROVE_REPORT_SUCCESS, GET_REPORTS_SUCCESS } from './mutations';
+import axios from 'axios';
 
 export const GET_REPORTS = 'GET_REPORTS';
+export const APPROVE_REPORT = 'APPROVE_REPORT';
 
 export const getReportsAction = () => `report/${GET_REPORTS}`;
+export const approveReportAction = () => `report/${APPROVE_REPORT}`;
 
 export default {
   [GET_REPORTS]: async function ({ commit, rootState }) {
@@ -14,4 +17,18 @@ export default {
       })
       .catch(_ => {});
   },
+  [APPROVE_REPORT]: function ({ commit, rootState }, reportId) {
+    requestApi('신고 승인하기', () => axios.delete('http://54.180.201.188:5002/report',
+      {
+        headers: {
+          Authorization: `Bearer ${rootState.auth.accessToken}`,
+        },
+        data: { reportId } ,
+      }
+    )
+  )
+    .then(_ => {
+      commit(APPROVE_REPORT_SUCCESS);
+    })
+  }
 };
