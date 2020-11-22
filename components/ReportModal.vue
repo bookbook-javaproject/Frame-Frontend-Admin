@@ -47,7 +47,7 @@ export default {
         await this.getReports();
         this.closeModal();
       }
-    }
+    },
   },
   methods: {
     ...mapActions({
