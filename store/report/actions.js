@@ -8,8 +8,10 @@ export const getReportsAction = () => `report/${GET_REPORTS}`;
 export default {
   [GET_REPORTS]: async function ({ commit, rootState }) {
     setToken.bind(this)(rootState.auth.accessToken);
-    await requestApi('신고리스트 불러오기', () => this.$axios.$get('/report')).then(data => {
-      commit(GET_REPORTS_SUCCESS, data);
-    }).catch(_ => {});
+    await requestApi('신고리스트 불러오기', () => this.$axios.$get('/report'))
+      .then(data => {
+        commit(GET_REPORTS_SUCCESS, data);
+      })
+      .catch(_ => {});
   },
 };
