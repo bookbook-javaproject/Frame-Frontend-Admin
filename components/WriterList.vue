@@ -14,7 +14,7 @@
       <pagination-bar
         v-bind:currentPage="currentPage"
         v-bind:totalPage="totalPage"
-        v-on:setPage="onSetChange"
+        v-on:setPage="onChangePage"
       />
     </footer>
     <accept-apply-writer-modal v-if="isModalOn" v-on:closeModal="closeModal" v-bind:email="email" />
@@ -58,7 +58,7 @@ export default {
     ...mapMutations({
       setPage: setCurrentPageMutation(),
     }),
-    onSetChange(page) {
+    onChangePage(page) {
       this.setPage(page);
     },
     openModal(email) {

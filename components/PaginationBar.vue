@@ -5,7 +5,7 @@
     </div>
     <div class="page" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
       <form v-show="isShowInput" @submit="changePage">
-        <input type="number" required v-bind:max="totalPage" min="1" value="1" />
+        <input type="number" required v-bind:max="totalPage" min="1" v-bind:value="currentPage" />
         <button type="submit">변경</button>
       </form>
       <span v-text="currentPage" />

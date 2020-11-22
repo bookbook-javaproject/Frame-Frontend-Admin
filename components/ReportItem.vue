@@ -1,10 +1,10 @@
 <template>
   <li @mouseover="onMouseOver" @mouseleave="onMouseLeave" @click="onClick">
     <img :src="warningImage" alt="경고이미지" />
-    <p class="post-id">1</p>
-    <p class="post-writer">글쓴 유저</p>
-    <p class="reporter">신고자명</p>
-    <p class="report-count">4개</p>
+    <p class="post-id" v-text="report.reportId" />
+    <p class="post-writer" v-text="report.writer" />
+    <p class="reporter" v-text="report.reporter" />
+    <p class="report-count" v-text="report.reportCount" />
   </li>
 </template>
 
@@ -13,6 +13,7 @@ import { warningImage, warningImpactImage } from '~/assets/images';
 
 export default {
   name: 'ReportItem',
+  props: ['report'],
   data() {
     return {
       warningImage,
@@ -68,7 +69,7 @@ p {
 
 .post-writer {
   flex: 3;
-  text-align: left;
+  text-align: center;
 }
 
 .reporter {

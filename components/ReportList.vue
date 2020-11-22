@@ -1,25 +1,35 @@
 <template>
   <div class="report-list-main">
     <h1>신고 목록</h1>
-    <ul>
-      <report-item v-on:openModal="openModal" />
-      <report-item v-on:openModal="openModal" />
-      <report-item v-on:openModal="openModal" />
-      <report-item v-on:openModal="openModal" />
-      <report-item v-on:openModal="openModal" />
-      <report-item v-on:openModal="openModal" />
+    <ul v-if="reports.length">
+      <report-item v-bind:report="tableHeader" />
+      <report-item
+        v-for="report of rangedReports"
+        v-bind:key="report.reportId"
+        v-bind:report="report"
+        v-on:openModal="openModal"
+      />
     </ul>
-    <footer>
-      <pagination-bar />
+    <h1 v-else>불러올 리스트가 없습니다.</h1>
+    <footer v-if="reports.length">
+      <pagination-bar
+        v-bind:currentPage="currentPage"
+        v-bind:totalPage="totalPage"
+        v-on:setPage="onChangePage"
+      />
     </footer>
     <report-modal v-if="isModalOn" v-on:closeModal="closeModal" />
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations } from 'vuex';
+
 import ReportModal from '~/components/ReportModal';
 import PaginationBar from '~/components/PaginationBar';
 import ReportItem from '~/components/ReportItem';
+import { totalPageGetter, rangedReportsGetter } from '~/store/report/getters';
+import { setCurrentPageMutation } from '~/store/report/mutations';
 
 export default {
   name: 'ReportList',
@@ -31,14 +41,36 @@ export default {
   data() {
     return {
       isModalOn: false,
+      tableHeader: {
+        reportId: '신고 번호',
+        writer: '글쓴이',
+        reporter: '신고자',
+        reportCount: '신고 합계',
+      },
     };
   },
+  computed: {
+    ...mapState({
+      reports: state => state.report.reports,
+      currentPage: state => state.report.currentPage,
+    }),
+    ...mapGetters({
+      totalPage: totalPageGetter(),
+      rangedReports: rangedReportsGetter(),
+    }),
+  },
   methods: {
+    ...mapMutations({
+      setPage: setCurrentPageMutation(),
+    }),
     openModal() {
       this.$data.isModalOn = true;
     },
     closeModal() {
       this.$data.isModalOn = false;
+    },
+    onChangePage(page) {
+      this.setPage(page);
     },
   },
 };
