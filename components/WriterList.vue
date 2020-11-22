@@ -6,7 +6,7 @@
     </ul>
     <h1 v-else>불러올 리스트가 없습니다.</h1>
     <footer v-if="writers.length">
-      <progress-bar v-bind:currentPage="currentPage" v-bind:totalPage="totalPage" v-on:setPage="onSetChange" />
+      <pagination-bar v-bind:currentPage="currentPage" v-bind:totalPage="totalPage" v-on:setPage="onSetChange" />
     </footer>
     <accept-apply-writer-modal v-if="isModalOn" v-on:closeModal="closeModal" />
   </div>
@@ -16,7 +16,7 @@
 import { mapState, mapGetters, mapMutations } from 'vuex';
 
 import AcceptApplyWriterModal from '~/components/AcceptApplyWriterModal';
-import ProgressBar from '~/components/ProgressBar';
+import PaginationBar from '~/components/PaginationBar';
 import WriterItem from '~/components/WriterItem';
 
 import { totalPageGetter, rangedWritersGetter } from '~/store/writer/getters';
@@ -25,7 +25,7 @@ import { setCurrentPageMutation } from '~/store/writer/mutations';
 export default {
   name: 'WriterList',
   components: {
-    'progress-bar': ProgressBar,
+    'pagination-bar': PaginationBar,
     'writer-item': WriterItem,
     'accept-apply-writer-modal': AcceptApplyWriterModal,
   },
