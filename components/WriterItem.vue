@@ -26,7 +26,7 @@ export default {
     },
     onClickLink(e) {
       e.stopPropagation();
-    }
+    },
   },
 };
 </script>
