@@ -23,8 +23,8 @@
     </aside>
     <article>
       <header>
-        <h1>김해건</h1>
-        <span>uchanlee.dev@gmail.com</span>
+        <h1>관리자</h1>
+        <span>추후 개발될 예정입니다.</span>
       </header>
       <main ref="chattingArea">
         <time-text />
