@@ -2,13 +2,13 @@
   <li>
     <header>
       <div>
-        <h1>김재훈</h1>
+        <h1>추후 개발</h1>
         <h2>uchanldee.dev@gmail.com</h2>
       </div>
       <div />
     </header>
     <main>
-      <p>ㄴㅁㅇㄹㄴㅁㄹㅁ리ㅏㅇ너러암러ㅏㄴㅇ머ㅏ러미렁니</p>
+      <p>추후 개발될 예정입니다.</p>
       <p>오전 10:43</p>
     </main>
   </li>
