@@ -1,11 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Nanum Gothic";
+  font-family: "AppleSDGothicNeo";
 }
 
 body {
   margin: 0;
   padding: 0;
   font-size: 16px;
+}
+
+@font-face {
+  font-family: 'AppleSDGothicNeo';
+  src: url('../font/AppleSDGothicNeo.ttf');
 }
