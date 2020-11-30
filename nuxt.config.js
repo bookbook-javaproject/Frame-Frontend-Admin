@@ -6,7 +6,7 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: ['@nuxtjs/axios'],
   axios: {
-    baseURL: 'http://54.180.201.188:5002',
+    baseURL: 'http://52.79.253.30:5002',
   },
   // Loading Progress Bar custom https://vue-nuxt.gitbook.io/nuxt/configuration/loading
   loading: {
