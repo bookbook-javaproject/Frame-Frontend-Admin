@@ -19,7 +19,7 @@ export default {
   },
   [APPROVE_REPORT]: function ({ commit, rootState }, reportId) {
     requestApi('신고 승인하기', () =>
-      axios.delete('http://54.180.201.188:5002/report', {
+      axios.delete('http://52.79.253.30:5002/report', {
         headers: {
           Authorization: `Bearer ${rootState.auth.accessToken}`,
         },
