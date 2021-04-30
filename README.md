@@ -4,6 +4,15 @@
 
 Frame 관리자를 위한 어드민 서비스 입니다.
 
+
+## 스크린샷
+
+<details open>
+    <summary>어드민 페이지의 기능을 소개하는 메인 페이지입니다.</summary>
+  
+![어드민 페이지의 기능을 소개하는 메인 페이지입니다.](https://user-images.githubusercontent.com/48552260/116674166-44159b80-a9df-11eb-828a-72c6ec6565c2.png)
+</details>
+
 ## Git commit Convention
 
 ### 1. 기본적으로 commit message는 아래와 같이 제목, 내용으로 구성한다.
