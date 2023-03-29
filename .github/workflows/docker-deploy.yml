@@ -16,7 +16,7 @@ jobs:
         run: docker build -t woochanlee/java-project-frame-admin .
 
       - name: publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: woochanlee/java-project-frame-admin
           username: ${{ secrets.DOCKER_USERNAME }}
